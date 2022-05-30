@@ -1,4 +1,4 @@
-package Observer;
+package DesignPatterns.Observer;
 
 public class StockObserver implements Observer {
 
@@ -13,7 +13,7 @@ public class StockObserver implements Observer {
     public StockObserver(Subject stockGrabber) {
         this.observerID = ++observerIDTracker;
 
-        System.out.println("New Observer " + this.observerID);
+        System.out.println("New DesignPatterns.Observer " + this.observerID);
 
         stockGrabber.register(this);
     }

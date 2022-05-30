@@ -1,4 +1,4 @@
-package Strategy;
+package DesignPatterns.Strategy;
 
 public class Dog extends Animal {
 

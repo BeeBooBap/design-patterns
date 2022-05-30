@@ -1,3 +1,6 @@
+# Design Patterns and Others
+
+------------------------------------------------------------------------------------------------------------------------
 # Design Patterns
 
 Categories of design patterns:
@@ -10,8 +13,8 @@ best practice for a particular problem.
 
 Types of creational design patterns:
 
-1. Factory Method - separating object instantiation from the class - using a separate class for this purpose
-2. Abstract Factory - allows for producing families of related objects without specifying concrete classes. It is a
+1. DesignPatterns.Factory Method - separating object instantiation from the class - using a separate class for this purpose
+2. Abstract DesignPatterns.Factory - allows for producing families of related objects without specifying concrete classes. It is a
    factory of factories.
 3. Prototype - allows for copying existing objects without creating dependencies on their classes
    We can use the Prototype design pattern to resolve this problem by creating the access control objects on all levels at
@@ -44,11 +47,11 @@ Types of behavioural design patterns:
 4. Mediator - reduce chaotic dependencies between objects by restricting direct communications between them. They must
    collaborate through a mediator
 5. Memento - save and restore the previous state of an object without revealing details of its implementation
-6. Observer - define a subscription mechanism to notify multiple objects about any events that happen to the object
+6. DesignPatterns.Observer - define a subscription mechanism to notify multiple objects about any events that happen to the object
    they are observing
    (use of "publishers" and "subscribers")
 7. State - lets an object alter its behaviour when its internal state changes (appears as if object changed its class)
-8. Strategy - lets you define a family of algorithms, put each of them in a separate class, and make their objects
+8. DesignPatterns.Strategy - lets you define a family of algorithms, put each of them in a separate class, and make their objects
    interchangeable
    (having an interface instant as a field of a class)
 9. Template Method - defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps

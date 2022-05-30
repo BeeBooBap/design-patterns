@@ -1,4 +1,4 @@
-package Factory;
+package DesignPatterns.Factory;
 
 public class UFOEnemyShip extends EnemyShip {
 

@@ -1,4 +1,4 @@
-package Strategy;
+package DesignPatterns.Strategy;
 
 /**
  * Rather than having a fly() method within Animal, we can have an interface with separate implementations of whether

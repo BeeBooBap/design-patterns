@@ -1,4 +1,4 @@
-Factory Method - separating object instantiation from the class - using a separate class for this purpose
+DesignPatterns.Factory Method - separating object instantiation from the class - using a separate class for this purpose
 - create objects without specifying the exact class of object that will be created
 
 The factory design patterns allows for different classes that share a common
