@@ -131,6 +131,30 @@ the Animal interface and also provides another method bark() specific to the ani
 can implement various animals from the same interface.
 
 ### Coupling and cohesion
+
+Coupling describes the relationship between components. Coupling can be "tight" or "loose". Where there is tight coupling,
+it indicates that the relationship between components is highly correlated, such that any change to one will have a
+drastic effect on the other. Loose coupling by contrast indicates that there is little connection between two components
+such that a change in one is unlikely or will not affect the other.
+
+Code example of tight coupling:
+````
+public Class Couple{
+
+    Husband husband;
+    Wife wife;
+
+    public Couple(){
+        this.husband = new Husband();
+        this.wife = new Wife();
+    }
+}
+````
+In the above, the fact that Couple directly instantiate instances of Husband and Wife indicates a very tight coupling
+that could break the Couple class if any changes were made to the Wife or Husband classes.
+
+Loose coupling is a goal of Object-Oriented programming.
+
 Within the realm of OOP, it is expected that a software programme have high cohesion within
 specific classes, but a loose coupling between classes. This ensures that within a class, it is appropriately defined
 to perform a specific task, and is not too broad or vague. Similarly, loose coupling between classes ensures they can
