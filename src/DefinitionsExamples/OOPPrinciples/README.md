@@ -3,7 +3,7 @@
 2. Inheritance
 3. Polymorphism
 
-###Encapsulation
+### Encapsulation
 
 It is a way to bind code and data together and keep them protected from interference that may occur at higher levels.
 In effect, it acts as a wrapper that restricts access, hiding detailed implementation and limiting any side effects
@@ -41,7 +41,7 @@ private int age;
 Using classes and access modifiers allows for encapsulation. Here, the only way to access the private field values of
 name and age is by using the public methods, rather than accessing the fields directly through a class instance.
 
-###Inheritance
+### Inheritance
 
 The way in which one objects acquires the properties of another.
 
@@ -77,7 +77,7 @@ int size = 3;
     }
 }
 ````
-###Inheritance vs Composition
+### Inheritance vs Composition
 
 Composition differs from inheritance in that whilst inheritance extends a class, composition uses a class instance
 as a field of another class. Using the Dog() class above, use of composition would look like -
@@ -93,7 +93,7 @@ Whilst inheritance is an "is-a" relationship, composition takes a "has-a" relati
 a class may only extend a single interface, there is no such limit with composition as you are simple creating class
 instances within classes. This can be done many times.
 
-###Polymorphism
+### Polymorphism
 Allows for a single interface to be used as a general template for subsequent class implementations.
 
 Polymorphism keeps programming simple by having generic interfaces that can be used for a group of related actions,
@@ -122,7 +122,7 @@ In the above, we have a generic interface Animal that has two unimplemented meth
 the Animal interface and also provides another method bark() specific to the animal Dog. Using this interface means we
 can implement various animals from the same interface.
 
-###Coupling and cohesion
+### Coupling and cohesion
 Within the realm of OOP, it is expected that a software programme have high cohesion within
 specific classes, but a loose coupling between classes. This ensures that within a class, it is appropriately defined
 to perform a specific task, and is not too broad or vague. Similarly, loose coupling between classes ensures they can
@@ -164,14 +164,18 @@ Here, Dog and Cat are loosely coupled because they make use of the Animal interf
 
 Loose coupling therefore ensures less interdependency of classes, less data movement and greater separation of elements.
 
-#Misc
+# Misc
 1.Typed vs untyped languages
 2. Abstraction
 3. Static vs dynamic dispatch 
 4. Tail recursion vs traditional recursion
 5. Immutable vs mutable
+6. Functional programming
+7. Pure Functions
+8. Lazy Evaluation
+9. Currying and closure 
 
-###Typed language
+### Typed language
 
 A typed language is one in which the type of data type of a variable is defined and known by the machine at compile time
 (statically typed language) or at run time (dynamically typed language).
@@ -200,17 +204,17 @@ By contrast, a weakly typed language will throw no such error in the same circum
 This is because rather than having to explicitly convert data types, a weakly typed language will make use of the compiler
 to implicitly convert data types at compile time. Therefore, the same add(1, '2') will run fine.
 
-###Untyped languages
+### Untyped languages
 
 Untyped languages are those where no such variable definition of the variable data type is required prior to runtime.
 JavaScript is an untyped language as a JS variable can hold any type of data type. Variables are declared using the
 keyword 'var' to hold data.
 
-###Abstraction
+### Abstraction
 
 You can make use of hierarchical classifications so that complex systems are broken down into more manageable pieces.
 
-###Static vs dynamic dispatch
+### Static vs dynamic dispatch
 
 Dynamic dispatch is a technique available to the compiler that means the compiler must check what implementation of a
 method is being performed (such as a reference to a superclass or subclass implementation), however this check is only
@@ -219,7 +223,7 @@ performed at runtime, meaning additional overhead.
 Static dispatch is where the compiler knows at compile time which method implementation is being called so overall
 execution speed is faster (it can inline and optimise prior to execution).
 
-###Tail recursion vs traditional recursion
+### Tail recursion vs traditional recursion
 
 In traditional recursion, also known as head recursion, a function or method is called within itself (a recursive call)
 and each recursive call is completed first, prior to actually evaluating the output of the function or method.
@@ -255,10 +259,14 @@ return tailRecursiveSum(x-1, total + x);
 Here, evaluation occurs after each recursive call and allows for the total variable to be updated as the function
 continues to execute.
 
-###Immutable vs Mutable
+### Immutable vs Mutable
 
 Where an object is immutable, it means that after its creation, it cannot be changed. This also means that where an
 existing immutable object is changed, it is actually creating an entirely new object with those "changed" properties.
+
+Immutable data types: an immutable class is a class which, once created, cannot be changed (to either the body of the
+class or its objects)
+- Integer, Byte, Long, Float, Double, Character, Boolean, Short, String
 
 By contrast, a mutable object is one which have its state changed or updated after creation. A good example of this is
 the StringBuilder class whose purpose is to help update or change a string as strings are immutable objects.
@@ -286,3 +294,91 @@ final int ID;
 Here, there are only getter methods available as the fields cannot be changed. They are also declared final to ensure
 they cannot be modified once assigned. A mutable class would have setter methods also to allow for modification and
 would not have final fields.
+
+### Functional Programming 
+
+Functional programs tend to be declarative (as opposed to imperative), that’s a case of telling the compiler what you
+want instead of how you want it.
+
+Algebraic data type: exposes the data structure and regularity.
+
+As Java is OO, it uses abstract data types (ADTs) and does not support algebraic data types directly.
+
+In OO, data is the important thing, as code is built on the principles of inheritance (is-a) and composition (has-a).
+In functional programming, the functions are the important thing. Code is built on "or" and "and" by using algebraic
+data types. There are two main patterns used - Product type pattern, and Sum type pattern.
+
+Product Type:
+
+Let us say that A has a B and C (such as Cat has a colour and a favourite food). We could display this using a record
+````
+record A(B b, C c) {}
+````
+Sum Type:
+
+Let us say A is a B or C (such as Visitor is Anonymous or Registered). We could display this using an interface
+````
+interface A {}
+final class B implements A {}
+final class C implements A {}
+````
+However, this does not prevent other classes implementing the interface. To restrict implementations, we could do this
+````
+sealed interface A permits B, C {}
+final class B implements A {}
+final class C implements A {}
+````
+
+### Pure Functions
+A function is pure if it satisfies 2 principles -
+
+1. The return value of the function depends only on the input parameters passed to the function
+2. The execution of the function has no side effects
+
+Example of property 1 -
+````
+class Maths {
+public int sum(int one, int two) {
+return one + two;
+}
+}
+````
+In the above, the return value will always be the same if we use the same one and two values. The return value is
+entirely dependent on the input one and two.
+
+Example of property 2 -
+````
+class Maths {
+int count;
+
+    public int sum(int one, int two) {
+        count++;
+        return one + two;
+    }
+}
+````
+In the above, the method sum cannot be considered pure because it has the side effect of changing the global field count.
+
+### Lazy Evaluation
+
+Delaying the evaluation of an expression until the value is needed, often performed by using streams and lambdas
+
+### Currying and closure 
+
+Currying: a technique of translating the evaluation of a function that takes multiple parameters into evaluating a
+sequence of functions, each with a single parameter.
+````
+IntFunction<IntUnaryOperator> curriedFun = x -> y -> x + y; // a curried function
+`````
+A short example:
+````
+// the another result is equal to 153
+int anotherResult = fff.apply(10).apply(15).apply(3);
+````
+Returning functions: where you treat a function as an object which can accept a method as an argument and return its
+value.
+
+A closure is a combination of a function bundled together (enclosed) with references to its surrounding state
+A closure gives you access to an outer function’s scope from an inner function (think higher order functions)
+
+Higher order functions: accept functions as parameters and/or returns a function
