@@ -172,7 +172,7 @@ Here, Dog and Cat are loosely coupled because they make use of the Animal interf
 
 Loose coupling therefore ensures less interdependency of classes, less data movement and greater separation of elements.
 
-# Misc
+# Misc -
 1.Typed vs untyped languages
 2. Abstraction
 3. Static vs dynamic dispatch 
@@ -182,6 +182,8 @@ Loose coupling therefore ensures less interdependency of classes, less data move
 7. Pure Functions
 8. Lazy Evaluation
 9. Currying and closure 
+10. Interface vs Abstract classes
+11. Checked exceptions
 
 ### Typed language
 
@@ -390,3 +392,37 @@ A closure is a combination of a function bundled together (enclosed) with refere
 A closure gives you access to an outer function’s scope from an inner function (think higher order functions)
 
 Higher order functions: accept functions as parameters and/or returns a function
+
+### Interface vs Abstract Class
+
+An interface cannot have an implementation within the interface (only method stubs), whereas an abstract class can.
+
+Methods and members of an abstract class can have any type of modifier, however an interface may only use "public" for
+its method visibility.
+
+An interface can support multiple implementations however an abstract class does not support multiple inheritance.
+
+Abstract class establishes "is a" relation with concrete classes. Interface provides "has a" capability for classes.
+So abstract classes are better suited for those classes that are closely related, however an interface can support
+many classes who have no or little connection.
+
+With the changes to Java, there is the possibility of an interface possessing "default methods", meaning all classes
+that implement the interface will share the same implementation of the method and you don't need to provide separate
+or the same implementation in each class.
+
+### Checked Exceptions
+
+A checked exception is one in which a type of exception must either be caught or declared in the method in which it is
+thrown. An example of this is the ClassNotFoundException which must be declared in a method that uses something such
+as Class.forName(String s).
+
+I disagree with the idea that checked exceptions were a design mistake, as the intention behind them was to support
+better code safety and resilience. They force developers to either account for exceptions or handle them appropriately.
+The issue is that it seems checked exceptions are becoming obsolete in that handling and recovery is done equally well
+with runtime exceptions. In addition, there is often little that can be done to correct a checked exception. As such,
+whilst the idea behind it is sound, its execution has become redundant.
+
+### Generics
+
+Introduce type safety checks. 
+Look at local notes.
