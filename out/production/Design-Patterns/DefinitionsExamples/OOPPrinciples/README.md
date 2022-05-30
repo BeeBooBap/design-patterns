@@ -131,6 +131,30 @@ the Animal interface and also provides another method bark() specific to the ani
 can implement various animals from the same interface.
 
 ### Coupling and cohesion
+
+Coupling describes the relationship between components. Coupling can be "tight" or "loose". Where there is tight coupling,
+it indicates that the relationship between components is highly correlated, such that any change to one will have a
+drastic effect on the other. Loose coupling by contrast indicates that there is little connection between two components
+such that a change in one is unlikely or will not affect the other.
+
+Code example of tight coupling:
+````
+public Class Couple{
+
+    Husband husband;
+    Wife wife;
+
+    public Couple(){
+        this.husband = new Husband();
+        this.wife = new Wife();
+    }
+}
+````
+In the above, the fact that Couple directly instantiate instances of Husband and Wife indicates a very tight coupling
+that could break the Couple class if any changes were made to the Wife or Husband classes.
+
+Loose coupling is a goal of Object-Oriented programming.
+
 Within the realm of OOP, it is expected that a software programme have high cohesion within
 specific classes, but a loose coupling between classes. This ensures that within a class, it is appropriately defined
 to perform a specific task, and is not too broad or vague. Similarly, loose coupling between classes ensures they can
@@ -172,7 +196,7 @@ Here, Dog and Cat are loosely coupled because they make use of the Animal interf
 
 Loose coupling therefore ensures less interdependency of classes, less data movement and greater separation of elements.
 
-# Misc
+# Misc -
 1.Typed vs untyped languages
 2. Abstraction
 3. Static vs dynamic dispatch 
@@ -182,6 +206,9 @@ Loose coupling therefore ensures less interdependency of classes, less data move
 7. Pure Functions
 8. Lazy Evaluation
 9. Currying and closure 
+10. Interface vs Abstract classes
+11. Checked exceptions
+12. Static vs dynamic libraries
 
 ### Typed language
 
@@ -390,3 +417,54 @@ A closure is a combination of a function bundled together (enclosed) with refere
 A closure gives you access to an outer function’s scope from an inner function (think higher order functions)
 
 Higher order functions: accept functions as parameters and/or returns a function
+
+### Interface vs Abstract Class
+
+An interface cannot have an implementation within the interface (only method stubs), whereas an abstract class can.
+
+Methods and members of an abstract class can have any type of modifier, however an interface may only use "public" for
+its method visibility.
+
+An interface can support multiple implementations however an abstract class does not support multiple inheritance.
+
+Abstract class establishes "is a" relation with concrete classes. Interface provides "has a" capability for classes.
+So abstract classes are better suited for those classes that are closely related, however an interface can support
+many classes who have no or little connection.
+
+With the changes to Java, there is the possibility of an interface possessing "default methods", meaning all classes
+that implement the interface will share the same implementation of the method and you don't need to provide separate
+or the same implementation in each class.
+
+### Checked Exceptions
+
+A checked exception is one in which a type of exception must either be caught or declared in the method in which it is
+thrown. An example of this is the ClassNotFoundException which must be declared in a method that uses something such
+as Class.forName(String s).
+
+I disagree with the idea that checked exceptions were a design mistake, as the intention behind them was to support
+better code safety and resilience. They force developers to either account for exceptions or handle them appropriately.
+The issue is that it seems checked exceptions are becoming obsolete in that handling and recovery is done equally well
+with runtime exceptions. In addition, there is often little that can be done to correct a checked exception. As such,
+whilst the idea behind it is sound, its execution has become redundant.
+
+### Generics
+
+Introduce type safety checks. 
+Look at local notes.
+
+### Static vs Dynamic Libraries
+
+Static libraries increase the size of the code in your binary. They're always loaded and whatever version of the code
+you compiled with is the version of the code that will run.
+
+Dynamic libraries are stored and versioned separately. It's possible for a version of the dynamic library to be loaded
+that wasn't the original one that shipped with your code if the update is considered binary compatible with the original
+version.
+
+Static libraries, while reusable in multiple programs, are locked into a program at compile time. Dynamic, or shared
+libraries, on the other hand, exist as separate files outside of the executable file and are combined at run time.
+
+Benefits of dynamic over static - uses up less disk space and therefore saves memory because only one copy of the DL is
+stored in memory and this is shared by multiple programs. The drawback however is if you want to recompile the DL and
+run a second copy of a program with the new, recompiled library, the dyanmic loader will only find the DL already in
+storage, rather than the new recompiled DL. So the new modified version is not loaded onto disk. 
