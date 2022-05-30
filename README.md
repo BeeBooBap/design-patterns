@@ -1,6 +1,5 @@
 # Design Patterns and Others
 
-------------------------------------------------------------------------------------------------------------------------
 # Design Patterns
 
 Categories of design patterns:
