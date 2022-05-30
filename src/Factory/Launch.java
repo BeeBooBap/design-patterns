@@ -18,6 +18,9 @@ public class Launch {
             enemyShipOption = userInput.nextLine();
         }
 
+        // logic of if statements has been moved to factory to deal with and simply return correct ship type or null
+        // at run time.
+
         ship = factory.makeShip(enemyShipOption);
 
         if (ship != null) {
