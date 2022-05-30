@@ -184,6 +184,7 @@ Loose coupling therefore ensures less interdependency of classes, less data move
 9. Currying and closure 
 10. Interface vs Abstract classes
 11. Checked exceptions
+12. Static vs dynamic libraries
 
 ### Typed language
 
@@ -426,3 +427,20 @@ whilst the idea behind it is sound, its execution has become redundant.
 
 Introduce type safety checks. 
 Look at local notes.
+
+### Static vs Dynamic Libraries
+
+Static libraries increase the size of the code in your binary. They're always loaded and whatever version of the code
+you compiled with is the version of the code that will run.
+
+Dynamic libraries are stored and versioned separately. It's possible for a version of the dynamic library to be loaded
+that wasn't the original one that shipped with your code if the update is considered binary compatible with the original
+version.
+
+Static libraries, while reusable in multiple programs, are locked into a program at compile time. Dynamic, or shared
+libraries, on the other hand, exist as separate files outside of the executable file and are combined at run time.
+
+Benefits of dynamic over static - uses up less disk space and therefore saves memory because only one copy of the DL is
+stored in memory and this is shared by multiple programs. The drawback however is if you want to recompile the DL and
+run a second copy of a program with the new, recompiled library, the dyanmic loader will only find the DL already in
+storage, rather than the new recompiled DL. So the new modified version is not loaded onto disk. 
