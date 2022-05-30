@@ -210,6 +210,7 @@ Loose coupling therefore ensures less interdependency of classes, less data move
 11. Checked exceptions
 12. Static vs dynamic libraries
 13. The "new" operator (also for constructors)
+14. Memoisation
 
 ### Typed language
 
@@ -488,3 +489,7 @@ storage, rather than the new recompiled DL. So the new modified version is not l
 appropriate subtype. 
 - It returns a new object, even if an existing object would be equally
 appropriate.
+- 
+### Memoisation
+
+Allows you to store values so you do not need to recompute them.
