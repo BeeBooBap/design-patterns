@@ -418,6 +418,18 @@ A closure gives you access to an outer function’s scope from an inner function
 
 Higher order functions: accept functions as parameters and/or returns a function
 
+Example -
+````
+public void name(){
+String name = "Bob";
+
+    public void displayName(){
+        system.out.println(name);
+    }
+
+    displayName();
+}
+````
 ### Interface vs Abstract Class
 
 An interface cannot have an implementation within the interface (only method stubs), whereas an abstract class can.
