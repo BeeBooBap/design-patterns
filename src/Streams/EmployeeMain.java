@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Main {
+public class EmployeeMain {
 
     public static List<String> processList(List<List<String>> names) {
         return names.stream()
@@ -31,6 +31,6 @@ public class Main {
                 Arrays.asList("Bill", "Gates"),
                 Arrays.asList("Mark", "Zuckerberg"));
 
-        System.out.println(Main.processList(namesNested));
+        System.out.println(EmployeeMain.processList(namesNested));
     }
 }
