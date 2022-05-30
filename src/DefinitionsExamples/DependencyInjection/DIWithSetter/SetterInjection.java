@@ -1,6 +1,6 @@
 package DefinitionsExamples.DependencyInjection.DIWithSetter;
 
-import DIWithConstructor.Dependency;
+import DefinitionsExamples.DependencyInjection.DIWithConstructor.Dependency;
 
 public class SetterInjection {
     private Dependency myDependency;
