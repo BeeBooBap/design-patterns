@@ -93,6 +93,14 @@ Whilst inheritance is an "is-a" relationship, composition takes a "has-a" relati
 a class may only extend a single interface, there is no such limit with composition as you are simple creating class
 instances within classes. This can be done many times.
 
+Inheritance is preferred over composition because it separates dependencies and
+can reduce code complexity by the use of interfaces. Composition by contrast
+may directly instantiate new objects within a class which creates hard dependencies
+and can go against the OOP principle of loose-coupling.
+
+With inheritance, you are more likely to satisfy principles of loose-coupling
+and high cohesion.
+
 ### Polymorphism
 Allows for a single interface to be used as a general template for subsequent class implementations.
 
