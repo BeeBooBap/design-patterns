@@ -8,6 +8,6 @@
 		https://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config/>
     <bean id="laptop" class="DefinitionsExamples.DependencyInjection.Laptop.Laptop" />
-    <bean id="hardDrive" class="DefinitionsExamples.DependencyInjection.Laptop.HitachiHD" />
+    <bean id="hardDrive" class="DefinitionsExamples.DependencyInjection.Laptop.SamsungHD" />
     <bean id="ram" class="DefinitionsExamples.DependencyInjection.Laptop.HyperXRAM" />
 </beans>

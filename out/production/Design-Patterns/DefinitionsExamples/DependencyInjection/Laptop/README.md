@@ -1,4 +1,4 @@
-# Laptop example using Spring @Autowired
+# Laptop example using Spring Autowire
 
 This example has two interfaces - a HardDrive interface and a RAM interface. 
 
