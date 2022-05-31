@@ -1,16 +1,16 @@
 package DefinitionsExamples.DependencyInjection.Baker;
 
 public class Baker {
-    Assistant assistant;
+    Assistant assistant; // external object used to "inject" dependencies, here Ingredients and Oven.
     Ingredients ingredients;
     Oven oven;
 
     public Baker(Assistant a) {
         this.assistant = a;
-    }
+    } // passing object through constructor
 
     private void setUpKitchen() {
-        this.ingredients = assistant.fetchIngredients();
+        this.ingredients = assistant.fetchIngredients(); // using object to fetch dependencies
         this.oven = assistant.setUpOven();
     }
 
