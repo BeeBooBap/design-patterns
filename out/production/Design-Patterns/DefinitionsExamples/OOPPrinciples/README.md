@@ -209,6 +209,8 @@ Loose coupling therefore ensures less interdependency of classes, less data move
 10. Interface vs Abstract classes
 11. Checked exceptions
 12. Static vs dynamic libraries
+13. The "new" operator (also for constructors)
+14. Memoisation
 
 ### Typed language
 
@@ -418,6 +420,18 @@ A closure gives you access to an outer function’s scope from an inner function
 
 Higher order functions: accept functions as parameters and/or returns a function
 
+Example -
+````
+public void name(){
+String name = "Bob";
+
+    public void displayName(){
+        system.out.println(name);
+    }
+
+    displayName();
+}
+````
 ### Interface vs Abstract Class
 
 An interface cannot have an implementation within the interface (only method stubs), whereas an abstract class can.
@@ -468,3 +482,14 @@ Benefits of dynamic over static - uses up less disk space and therefore saves me
 stored in memory and this is shared by multiple programs. The drawback however is if you want to recompile the DL and
 run a second copy of a program with the new, recompiled library, the dyanmic loader will only find the DL already in
 storage, rather than the new recompiled DL. So the new modified version is not loaded onto disk. 
+
+### The "new" operator limitations (the same as constructors)
+
+- It returns an object of exactly the requested type, never of a more
+appropriate subtype. 
+- It returns a new object, even if an existing object would be equally
+appropriate.
+- 
+### Memoisation
+
+Allows you to store values so you do not need to recompute them.

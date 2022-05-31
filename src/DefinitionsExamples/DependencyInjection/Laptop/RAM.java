@@ -1,5 +1,5 @@
 package DefinitionsExamples.DependencyInjection.Laptop;
 
-public interface HardDrive {
+public interface RAM {
     void setUp();
 }

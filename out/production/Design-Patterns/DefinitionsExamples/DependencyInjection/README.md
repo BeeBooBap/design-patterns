@@ -10,6 +10,9 @@ In the Baker example, it uses an Assistant class to generate instances of Oven a
 by the Baker class. The Baker class itself however never creates the object instances, it simply uses them. Thus, by
 using the Assistant class, it removes tight coupling.
 
+The baker example demonstrates DI using constructor injection. A new assistant is first created and then
+passed through Baker's constructor. 
+
 Consider HelloWorld example by dependency injection.
 
 It is a kind of Inversion of Control.
