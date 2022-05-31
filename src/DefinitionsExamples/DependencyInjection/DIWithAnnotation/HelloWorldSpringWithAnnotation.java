@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class HelloWorldSpringWithAnnotation {
     public static void main(String[] args) throws Exception {
-        BeanFactory factory = new ClassPathXmlApplicationContext("beans.xml");
+        BeanFactory factory = new ClassPathXmlApplicationContext("autowiredExamplebeans.xml");
         MessageRenderer mr = (MessageRenderer) factory.getBean("renderer");
         mr.render();
     }
