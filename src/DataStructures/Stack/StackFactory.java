@@ -5,12 +5,6 @@ import java.util.Optional;
 
 public class StackFactory<T> {
 
-    /**
-     * Alternative optional
-     * Optional<String> optionalValue = wordList.stream().filter(s -> s.contains("fred")).findFirst();
-     * System.out.print(optionalValue.orElse("No word") + " contains fred");
-     */
-
     public Stack<T> factoryMethod(String stackType) {
 
         String str = Optional.ofNullable(stackType).orElseGet(() -> "Stack"); // default implementation of Stack if null value
